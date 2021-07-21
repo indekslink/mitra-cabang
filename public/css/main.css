@@ -10,21 +10,27 @@ nav ul.navbar-nav a.active,
 nav ul.navbar-nav a:hover {
     font-weight: bold;
     color: var(--primary) !important;
-    /* text-shadow: -1px 1px 0 white, 1px 1px 0 white, 1px -1px 0 white,
-        -1px -1px 0 white; */
+    text-shadow: -1px 1px 0 white, 1px 1px 0 white, 1px -1px 0 white,
+        -1px -1px 0 white;
 }
 nav {
-    padding: 1rem 0 !important;
+    padding: 0 !important;
     transition: background 0.5s ease, 0.5s ease;
     background-color: transparent;
+}
+nav .container {
+    transition: 0.5s ease;
+    padding: 1.5rem !important;
 }
 
 nav ul.navbar-nav a {
     font-size: 14px !important;
 }
 nav.scroller {
-    padding: 0.5rem 0 !important;
     background-color: var(--darkNav);
+}
+nav.scroller .container {
+    padding: 0.5rem 12px !important;
 }
 
 nav ul.navbar-nav .dropdown-menu a {
@@ -74,19 +80,39 @@ nav.scroller .dropdown-menu {
 .hamburger-menu.show span:nth-child(3) {
     transform: rotate(-45deg) translate(6px, -6px);
 }
+.to-top {
+    position: fixed;
+    z-index: 999;
+    bottom: -20px;
+    opacity: 0;
+    transition: 0.5s linear;
+    right: 20px;
+}
+.to-top.show {
+    opacity: 1;
+
+    bottom: 20px;
+}
 
 #hero-image {
     position: relative;
     height: 100vh;
-    background-image: url(../images/bg-hero.jpg);
+    background-image: url(../files/2.jpeg);
     display: flex;
     align-items: center;
     flex-direction: column;
     justify-content: center;
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: right;
     background-size: cover;
     background-attachment: fixed;
+}
+#hero-image ol.breadcrumb {
+    justify-content: center;
+}
+#hero-image ol.breadcrumb .breadcrumb-item.active {
+    color: var(--lightwhite);
+    opacity: 0.8;
 }
 #hero-image .container {
     position: relative;
@@ -107,9 +133,10 @@ nav.scroller .dropdown-menu {
     color: white;
     background-color: var(--primary);
 }
+
 .btn-outline-my-info {
     background-color: transparent;
-    color: white;
+    color: var(--primary);
     border: 2px solid var(--primary);
 }
 .btn-outline-my-info:hover {
@@ -139,4 +166,93 @@ nav.scroller .dropdown-menu {
     border: 3px solid lightgray;
     background-color: var(--lightwhite);
     border-radius: 50%;
+}
+section.mark-content {
+    background-image: url(../images/bg-hero.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    position: relative;
+}
+section.mark-content .container {
+    position: relative;
+    z-index: 3;
+}
+section.mark-content::after {
+    z-index: 2;
+    content: "";
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.4);
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    pointer-events: none;
+}
+section.mark-content .content {
+    text-transform: uppercase;
+}
+
+section.mark-content .first .column {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+}
+section.mark-content .first .column > * {
+    margin: 0.5rem 0;
+}
+section.mark-content .first .column .value {
+    opacity: 0.7;
+}
+section#project .card {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    border: none !important;
+}
+section#project .card img {
+    width: 100%;
+    transition: 0.5s;
+}
+section#project .card-body {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    transition: 0.5s ease;
+}
+section#project .card:hover .card-body {
+    opacity: 1;
+    color: white;
+}
+section#project .card:hover img {
+    transform: scale(1.2);
+}
+
+section.information {
+    background: var(--dark);
+    color: white;
+}
+section.information .item {
+    display: flex;
+    align-items: center;
+}
+section.information i {
+    margin-right: 0.5rem;
+}
+footer {
+    font-size: 14px;
+    background: var(--dark);
+}
+footer li,
+footer a {
+    color: white !important;
+}
+footer a:hover {
+    border-bottom: 1px solid var(--primary) !important;
 }
